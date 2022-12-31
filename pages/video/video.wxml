@@ -8,7 +8,20 @@
     </view>
 
     <!--    导航区-->
-    <scroll-view >
+    <scroll-view scroll-x class="navScroll" enable-flex >
+        <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+            <view class="navContent {{navId === item.id?'active': ''}}" bindtap="changeNav" id="{{item.id}}" data-id="{{item.id}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+
+<!--    视屏列表区域-->
+    <scroll-view scroll-y class="videoScroll">
+        <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+            <video src="{{item.data.previewUrl}}"></video>
+        </view>
+
 
     </scroll-view>
 </view>
