@@ -19,7 +19,18 @@
 <!--    视屏列表区域-->
     <scroll-view scroll-y class="videoScroll">
         <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
-            <video src="{{item.data.previewUrl}}"></video>
+            <video
+                    src="{{item.data.urlInfo.url}}"
+                    bindplay="handlePlay"
+                    id="{{item.data.vid}}"
+                    poster="{{item.data.coverUrl}}"
+                    class="common"
+                    wx:if="{{videoId === item.data.vid}}"
+                    autoplay="true"
+                    object-fit="fill"
+                    bindtimeupdate="handleTimeUpdate"
+                    bindended="handleEnded"
+            ></video>
         </view>
 
 

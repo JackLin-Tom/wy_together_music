@@ -45,7 +45,7 @@ Page({
       return item;
     })
     this.setData({
-      videoList,
+      videoList: videoList,
       isTriggered: false // 关闭下拉刷新
     })
   },
